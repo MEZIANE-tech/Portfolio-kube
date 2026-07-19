@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV — Yacine MEZIANE</title>
+    <meta name="description" content="CV de Yacine MEZIANE — Ingénieur Systèmes & Automatisation, SRE, DevOps.">
+    <link rel="stylesheet" href="{% static 'common/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{% static 'cv/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'common/assets/img/favicon.png' %}">
+  </head>
+
+  <body>
+    {% include 'common/navbar_menu-mobile.html' %}
+
+    <!-- Hero CV -->
+    <div class="cv-hero">
+      <div class="cv-hero-inner">
+        <div class="cv-hero-label">Mon CV</div>
+        <h1 class="cv-hero-title">Yacine MEZIANE</h1>
+        <p class="cv-hero-role">Ingénieur Systèmes & Automatisation · SRE · DevOps</p>
+        <a href="{% url 'download-cv' %}" class="cv-download-btn">
+          <i class="fa-solid fa-download"></i> Télécharger le CV
+        </a>
+      </div>
+    </div>
+
+    <!-- Compétences -->
+    {% include 'cv/competences.html' %}
+
+    <!-- Expériences -->
+    {% include 'cv/experiences.html' %}
+
+    <!-- Formations -->
+    {% include 'cv/formations.html' %}
+
+    {% include 'common/footer.html' %}
+
+    <script src="{% static 'common/js/mobile-menu.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'cv/js/arrow_section.js' %}"></script>
+  </body>
+</html>

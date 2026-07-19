@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Retour d'expérience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'contact/css/privacy-policy.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  {% include 'common/navbar_menu-mobile.html' %}
+  <div class="privacy-policy-wrapper">
+    <h1>Politique de confidentialité</h1>
+  
+    <section>
+      <h2>Collecte des données personnelles</h2>
+      <p>Nous collectons uniquement les données nécessaires pour répondre à votre demande via notre formulaire de contact (nom, email, message).</p>
+    </section>
+  
+    <section>
+      <h2>Utilisation des données</h2>
+      <p>Les données collectées sont utilisées uniquement pour vous recontacter dans le cadre de votre demande. Elles ne sont pas partagées avec des tiers.</p>
+    </section>
+  
+    <section>
+      <h2>Durée de conservation</h2>
+      <p>Vos données sont conservées pendant une durée maximale de 3 ans après votre dernier contact avec nous, conformément à la réglementation en vigueur.</p>
+    </section>
+  
+    <section>
+      <h2>Vos droits</h2>
+      <p>Conformément à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Vous pouvez exercer ces droits en nous contactant à l'adresse email indiquée sur notre site.</p>
+    </section>
+  
+    <section>
+      <h2>Sécurité</h2>
+      <p>Nous mettons en place des mesures techniques et organisationnelles afin de protéger vos données contre toute perte, altération ou accès non autorisé.</p>
+    </section>
+  
+    <section>
+      <h2>Contact</h2>
+      <p>Pour toute question concernant vos données personnelles, vous pouvez nous contacter à : <a href="mailto:mezianeyacine@outlook.fr">mezianeyacine@outlook.fr</a>.</p>
+    </section>
+  </div>
+  {% include 'common/footer.html' %}
+  <script src="{% static 'common/js/mobile-menu.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

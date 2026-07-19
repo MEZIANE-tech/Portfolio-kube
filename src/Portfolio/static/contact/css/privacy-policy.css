@@ -1,0 +1,115 @@
+@import url("../../common/css/navbar.css");
+@import url("../../common/css/footer.css");
+
+/* ─── Variables globales du thème ───────────────────────────── */
+:root {
+  --cv-bg: #090d1a;
+  --cv-surface: rgba(255,255,255,0.03);
+  --cv-border: rgba(255,255,255,0.07);
+  --cv-accent: #1777b8;
+  --cv-accent-light: #78bfee;
+  --cv-text: #c9d8e8;
+  --cv-muted: #8899aa;
+  --cv-white: #ffffff;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+}
+
+/* ─── Wrapper ───────────────────────────────────────────────── */
+.privacy-policy-wrapper {
+  max-width: 900px;
+  margin: 120px auto 80px;
+  padding: 0 24px;
+}
+
+/* ─── Titre principal ───────────────────────────────────────── */
+h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--cv-white);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: var(--cv-accent);
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
+
+/* ─── Sections ─────────────────────────────────────────────── */
+section {
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+
+
+/* ─── Sous-titres ───────────────────────────────────────────── */
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cv-accent-light);
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--cv-accent);
+  display: inline-block;
+}
+
+/* ─── Paragraphes ───────────────────────────────────────────── */
+p {
+  color: var(--cv-muted);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* ─── Liens ─────────────────────────────────────────────────── */
+a {
+  color: var(--cv-accent-light);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: var(--cv-accent);
+  text-shadow: 0 0 6px rgba(23, 119, 184, 0.5);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  section {
+    padding: 22px 20px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}

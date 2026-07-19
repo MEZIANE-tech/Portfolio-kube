@@ -1,0 +1,157 @@
+/* ─── Parcours ───────────────────────────────────────────────── */
+.parcours {
+  background-color: #080c18;
+  margin: 0;
+  padding: 80px 6rem 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+.parcours::before {
+  content: '';
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(23, 119, 184, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.parcours-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1777b8;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+.parcours-label::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background: #1777b8;
+}
+
+.timeline-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0px;
+  letter-spacing: -0.5px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timeline a {
+  text-decoration: none;
+}
+
+.timeline {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  position: relative;
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23, 119, 184, 0.3) transparent;
+  padding-top: 50px;
+}
+
+.timeline::-webkit-scrollbar {
+  height: 4px;
+}
+.timeline::-webkit-scrollbar-track {
+  background: transparent;
+}
+.timeline::-webkit-scrollbar-thumb {
+  background: rgba(23, 119, 184, 0.3);
+  border-radius: 4px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 42%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(23, 119, 184, 0.3), transparent);
+  z-index: 0;
+  transform: none;
+  display: none;
+}
+
+.event {
+  flex: 0 0 auto;
+  width: 160px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  text-align: center;
+  padding: 1.2rem 0.8rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.event:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(23, 119, 184, 0.2);
+  border-color: rgba(23, 119, 184, 0.4);
+}
+
+.event i {
+  font-size: 1.5rem;
+  color: #1777b8;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.event h3 {
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.event p {
+  font-size: 0.78rem;
+  color: #8899aa;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .parcours {
+    padding: 60px 1.5rem 40px;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  .event {
+    width: 100%;
+  }
+}

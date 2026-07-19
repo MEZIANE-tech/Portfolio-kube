@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tutoriels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/tutoriels/css/tutoriels.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  {% include 'common/navbar_menu-mobile.html' %}
+  <div class="page-header">
+    <div class="page-header-inner">
+
+        <div class="page-header-label">Tutoriels</div>
+
+        <h1 class="page-header-title">
+            Mes tutoriels techniques
+        </h1>
+
+        <p class="page-header-sub">
+            Guides pratiques DevOps, SRE, Docker, Git, CI/CD, Cloud et bonnes pratiques.
+        </p>
+
+    </div>
+</div>
+
+  <main class="container" role="main" aria-label="Liste des tutoriels utiles">
+    
+
+    <ul class="section-list">
+      {% for tuto in tutoriels %}
+        <li>
+          <a href="{% url 'tutoriel_detail' slug=tuto.slug %}" class="section-link" tabindex="0" aria-label="Accéder à la section {{ tuto.title }}">
+            <div class="content">
+              <h2>{{ tuto.title }}</h2>
+              <p>{{ tuto.description }}</p>
+            </div>
+          </a>
+        </li>
+      {% empty %}
+        <li class="empty-message"><p>Aucun tutoriel disponible pour le moment.</p></li>
+      {% endfor %}
+    </ul>
+  
+  </main>
+
+
+
+  {% include 'common/footer.html' %}
+
+  <script src="{% static 'common/js/mobile-menu.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

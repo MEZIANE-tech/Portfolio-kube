@@ -1,0 +1,213 @@
+@import url("../../common/css/navbar.css");
+@import url("../../common/css/footer.css");
+
+/* ─── Variables globales ─────────────────────────────────────── */
+:root {
+  --cv-bg: #090d1a;
+  --cv-surface: rgba(255,255,255,0.03);
+  --cv-border: rgba(255,255,255,0.07);
+  --cv-accent: #1777b8;
+  --cv-accent-light: #78bfee;
+  --cv-text: #c9d8e8;
+  --cv-muted: #8899aa;
+  --cv-white: #ffffff;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.page-header {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1829 100%);
+  padding: 110px 2rem 60px;
+  text-align: center;
+  border-bottom: 1px solid var(--cv-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(23, 119, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 119, 184, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.page-header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cv-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-header-label::before,
+.page-header-label::after {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: var(--cv-accent);
+}
+
+.page-header-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--cv-white);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.page-header-title i {
+  color: var(--cv-accent-light);
+  margin-right: 10px;
+}
+
+.page-header-sub {
+  font-size: 1rem;
+  color: var(--cv-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ─── Accordion ─────────────────────────────────────────────── */
+.loisirs-accordion-item {
+  background: var(--cv-surface);
+  border: 1px solid var(--cv-border) !important;
+  border-radius: 14px !important;
+  margin-bottom: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px rgba(23, 119, 184, 0.08);
+}
+
+.loisirs-accordion-btn {
+  background: transparent !important;
+  color: var(--cv-white);
+  font-weight: 600;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+}
+
+.loisirs-accordion-btn:not(.collapsed) {
+  background: rgba(23, 119, 184, 0.08) !important;
+  color: var(--cv-accent-light);
+}
+
+.loisirs-accordion-btn::after {
+  filter: invert(1);
+}
+
+/* Icône catégorie */
+.cat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(23, 119, 184, 0.15);
+  color: var(--cv-accent-light);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Label catégorie */
+.cat-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cv-white);
+}
+
+.cat-desc {
+  font-size: 0.85rem;
+  color: var(--cv-muted);
+}
+
+/* ─── Items ─────────────────────────────────────────────────── */
+.item-card {
+  background: var(--cv-surface);
+  border: 1px solid var(--cv-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.item-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(23, 119, 184, 0.4);
+  box-shadow: 0 10px 24px rgba(23, 119, 184, 0.25);
+}
+
+/* Image */
+.item-img-wrapper {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.35s ease;
+}
+
+.item-card:hover .item-img {
+  transform: scale(1.05);
+}
+
+/* Placeholder */
+.item-img-placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: rgba(23, 119, 184, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--cv-accent-light);
+}
+
+/* Texte */
+.item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cv-white);
+}
+
+.item-desc {
+  font-size: 0.85rem;
+  color: var(--cv-muted);
+}

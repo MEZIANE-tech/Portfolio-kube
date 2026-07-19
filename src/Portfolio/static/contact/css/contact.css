@@ -1,0 +1,228 @@
+@import url("../../common/css/navbar.css");
+@import url("../../common/css/footer.css");
+
+dl, ol, ul {
+  margin-top: revert;
+  margin-bottom: revert;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  background-color: #090d1a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* ─── Hero contact ───────────────────────────────────────────── */
+.contact-hero {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1829 100%);
+  padding: 100px 2rem 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(23, 119, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 119, 184, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.contact-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-hero-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1777b8;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-hero-label::before,
+.contact-hero-label::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background: #1777b8;
+}
+
+.contact-hero-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+}
+
+.contact-hero-sub {
+  font-size: 1rem;
+  color: #8899aa;
+}
+
+/* ─── Formulaire ─────────────────────────────────────────────── */
+.contact-wrapper {
+  max-width: 750px;
+  margin: 60px auto;
+  padding: 0 2rem 80px;
+}
+
+.contact-form-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c9d8e8;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.label-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .label-inline label {
+    margin-bottom: 0 !important;
+    display: inline-block !important;
+  }
+  
+  .contact-form-card .form-group,
+.contact-form-card .mb-3,
+.contact-form-card .row > div {
+    margin-bottom: 22px;
+}
+
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+  min-height: 48px;
+  background: rgba(255,255,255,0.05);
+  color: #c9d8e8;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #1777b8;
+  box-shadow: 0 0 0 3px rgba(23, 119, 184, 0.15);
+  background: rgba(23, 119, 184, 0.05);
+}
+
+.form-control::placeholder {
+  color: #4a5568;
+}
+
+select.form-control option {
+  background: #0d1829;
+  color: #c9d8e8;
+}
+
+/* ─── Bouton ─────────────────────────────────────────────────── */
+.btn-custom {
+  width: 100%;
+  padding: 14px;
+  background-color: #1777b8;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 8px;
+}
+
+.btn-custom:hover {
+  background-color: #1565a0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(23, 119, 184, 0.35);
+  color: white;
+}
+
+/* ─── Checkbox privacy ───────────────────────────────────────── */
+.form-check {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form-check-input {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: #1777b8;
+}
+
+.form-check-label {
+  font-size: 0.82rem;
+  color: #8899aa;
+  line-height: 1.5;
+}
+
+.form-check-label a {
+  color: #1777b8;
+  text-decoration: none;
+}
+
+.form-check-label a:hover {
+  color: #78bfee;
+}
+
+/* ─── Erreurs ────────────────────────────────────────────────── */
+.text-danger {
+  color: #f87171;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.required {
+  color: #f87171;
+  margin-left: 3px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 90px 1.5rem 40px;
+  }
+
+  .contact-wrapper {
+    padding: 0 1rem 60px;
+  }
+
+  .contact-form-card {
+    padding: 24px;
+  }
+}

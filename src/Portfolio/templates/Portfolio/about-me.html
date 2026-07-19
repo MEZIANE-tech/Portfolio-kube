@@ -1,0 +1,47 @@
+{% load static %}
+
+<section class="about-section">
+  <div class="about-content">
+
+    <div class="about-text">
+      <div class="about-label">À propos de moi</div>
+      <h2>Ingénieur passionné par<br>la fiabilité des systèmes</h2>
+
+      {% if about %}
+        {% if about.paragraphe_1 %}<p>{{ about.paragraphe_1|safe }}</p>{% endif %}
+        {% if about.paragraphe_2 %}<p>{{ about.paragraphe_2|safe }}</p>{% endif %}
+        {% if about.paragraphe_3 %}<p>{{ about.paragraphe_3|safe }}</p>{% endif %}
+      {% else %}
+        <p><strong>Ingénieur Systèmes & Automatisation</strong> avec 8 ans d'expérience en environnements critiques et régulés, j'accompagne les entreprises dans la fiabilité, la performance et la résilience de leurs plateformes. Mon parcours au sein de grands groupes comme BNP Paribas CIB et Renault m'a permis de développer une expertise solide en migrations complexes, automatisation, observabilité et sécurisation des infrastructures.</p>
+        <p>Je conçois, industrialise et optimise des environnements hybrides (on-premise / cloud) en m'appuyant sur des pratiques modernes : pipelines CI/CD, Infrastructure as Code, supervision avancée et automatisation par scripting.</p>
+        <p>Mon approche est résolument orientée <strong>fiabilité, résilience et observabilité</strong>, dans un positionnement proche des <strong>pratiques SRE</strong>.</p>
+      {% endif %}
+    </div>
+
+    <div class="skills">
+      <h3>Compétences clés</h3>
+      {% if competences %}
+        {% for competence in competences %}
+        <div class="skill">
+          <span>{{ competence.titre }}</span>
+          <div class="dots">
+            {% for i in "12345" %}
+              {% if forloop.counter <= competence.niveau %}
+                <span class="dot filled"></span>
+              {% else %}
+                <span class="dot"></span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="skill"><span>Fiabilité & Résilience</span><div class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div></div>
+        <div class="skill"><span>Production & Incidents</span><div class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div></div>
+        <div class="skill"><span>Automatisation</span><div class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></div>
+        <div class="skill"><span>Infrastructure / Cloud</span><div class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>

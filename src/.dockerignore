@@ -1,0 +1,16 @@
+# Virtualenv Python
+../.venv
+
+# Repo Git
+../.git
+
+# Secrets Django
+../.env
+
+# Fichiers inutiles
+__pycache__
+*.pyc
+
+# Fichiers générés
+staticfiles
+media

@@ -1,0 +1,37 @@
+{% load static %}
+<footer class="footer-wrapper">
+<div class="last-part">
+    <div class="footer">
+      <div class="top">
+        <div class="copyright">&copy; {% now "Y" %} Yacine MEZIANE </div>
+      </div>
+      <div class="bottom">
+        <div class="social">
+          <a href="{% url 'facebook' %}"
+            ><img
+              src="{% static 'Portfolio/assets/img/facebook.png' %}"
+              alt="facebook"
+          /></a>
+
+          <a href="{% url 'twitter' %}"
+            ><img
+              src="{% static 'Portfolio/assets/img/twitter.png' %}"
+              alt="twitter"
+          /></a>
+
+          <a href="{% url 'linkedin' %}"
+            ><img
+              src="{% static 'Portfolio/assets/img/linkedin.png' %}"
+              alt="linkedin"
+          /></a>
+
+          <a href="{% url 'github' %}"
+            ><img
+              src="{% static 'Portfolio/assets/img/github.png' %}"
+              alt="github"
+          /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

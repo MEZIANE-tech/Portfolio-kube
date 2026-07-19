@@ -1,0 +1,198 @@
+@import url("../../../common/css/navbar.css");
+@import url("../../../common/css/footer.css");
+
+/* ─── Thème global ───────────────────────────────────────────── */
+:root {
+  --cv-bg: #090d1a;
+  --cv-surface: rgba(255,255,255,0.03);
+  --cv-border: rgba(255,255,255,0.07);
+  --cv-accent: #1777b8;
+  --cv-accent-light: #78bfee;
+  --cv-text: #c9d8e8;
+  --cv-muted: #8899aa;
+  --cv-white: #ffffff;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  line-height: 1.8;
+}
+
+.container {
+  width: min(90%, 1100px);
+  margin: 120px auto 0 auto;
+}
+
+/* ─── Titres ─────────────────────────────────────────────────── */
+h1 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--cv-white);
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  margin-top: 50px;
+  font-size: clamp(1.4rem, 2vw, 1.6rem);
+  font-weight: 700;
+  padding-left: 14px;
+  border-left: 4px solid var(--cv-accent);
+  color: var(--cv-white);
+}
+
+h3 {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cv-accent-light);
+}
+
+h4 {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cv-muted);
+}
+
+/* ─── Paragraphes ────────────────────────────────────────────── */
+p {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  color: var(--cv-text);
+}
+
+/* ─── Blocks (explications, remarques, etc.) ─────────────────── */
+.block {
+  background: var(--cv-surface);
+  padding: 22px 24px;
+  border-radius: 14px;
+  border: 1px solid var(--cv-border);
+  box-shadow: 0 0 12px rgba(23, 119, 184, 0.08);
+  margin: 20px 0;
+  backdrop-filter: blur(8px);
+}
+
+.explanation {
+  margin-bottom: 14px;
+  font-size: 0.98rem;
+  color: var(--cv-muted);
+}
+
+.remarque {
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+  color: var(--cv-muted);
+  font-style: italic;
+}
+
+/* ─── Code blocks ────────────────────────────────────────────── */
+pre:has(code.hljs) {
+  background: #0f111a !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--cv-border) !important;
+  padding: 16px !important;
+  overflow-x: auto;
+}
+
+pre:has(code.hljs) code.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+  display: block;
+  color: #e5e7eb !important;
+  font-family: "JetBrains Mono", monospace !important;
+}
+
+pre {
+  background: #0f111a;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--cv-border);
+  overflow-x: auto;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+code {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--cv-accent-light);
+}
+
+/* ─── Table des matières ─────────────────────────────────────── */
+.toc {
+  background: var(--cv-surface);
+  border: 1px solid var(--cv-border);
+  box-shadow: 0 0 12px rgba(23, 119, 184, 0.08);
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  font-size: 0.95rem;
+  backdrop-filter: blur(8px);
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc ul li {
+  margin: 6px 0;
+}
+
+.toc ul li a {
+  text-decoration: none;
+  color: var(--cv-accent-light);
+  transition: 0.2s ease;
+}
+
+.toc ul li a:hover {
+  color: var(--cv-accent);
+  text-shadow: 0 0 8px rgba(23, 119, 184, 0.6);
+}
+
+.toc ul li ul {
+  margin-top: 4px;
+  margin-left: 18px;
+  border-left: 2px solid var(--cv-border);
+  padding-left: 12px;
+}
+
+/* ─── Divers ─────────────────────────────────────────────────── */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+.last-updated {
+  font-size: 0.8rem;
+  width: min(90%, 1000px);
+  color: var(--cv-muted);
+  text-align: right;
+  margin: 0 auto;
+}
+
+.schema-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.schema-container pre {
+  margin: 0 auto;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .container {
+    margin-top: 100px;
+  }
+
+  pre {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loisirs — Yacine MEZIANE</title>
+  <meta name="description" content="Les loisirs et centres d'intérêt de Yacine MEZIANE.">
+
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'loisirs/css/loisirs.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'common/assets/img/favicon.png' %}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+
+  {% include 'common/navbar_menu-mobile.html' %}
+
+  <main>
+
+    <!-- Header premium -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div class="page-header-label">Loisirs</div>
+        <h1 class="page-header-title">
+          Ce qui me fait vibrer
+        </h1>
+        <p class="page-header-sub">
+          Mes passions, inspirations et activités en dehors du terminal.
+        </p>
+      </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="container py-5">
+      <div class="accordion loisirs-accordion" id="loisirsAccordion">
+
+        {% for categorie in categories %}
+        <div class="accordion-item loisirs-accordion-item">
+
+          <!-- Header -->
+          <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+            <button
+              class="accordion-button loisirs-accordion-btn {% if not forloop.first %}collapsed{% endif %}"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse{{ forloop.counter }}"
+              aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="collapse{{ forloop.counter }}"
+            >
+              <span class="cat-icon">
+                <i class="{{ categorie.icon }}"></i>
+              </span>
+
+              <span class="cat-label">
+                <span class="cat-title">{{ categorie.title }}</span>
+                <span class="cat-desc">{{ categorie.description }}</span>
+              </span>
+            </button>
+          </h2>
+
+          <!-- Contenu -->
+          <div
+            id="collapse{{ forloop.counter }}"
+            class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+            aria-labelledby="heading{{ forloop.counter }}"
+            data-bs-parent="#loisirsAccordion"
+          >
+            <div class="accordion-body">
+
+              {% if categorie.items.all %}
+              <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center">
+                {% for item in categorie.items.all %}
+                <div class="col">
+                  <div class="item-card h-100">
+
+                    {% if item.image %}
+                      <div class="item-img-wrapper">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="item-img">
+                      </div>
+                    {% else %}
+                      <div class="item-img-placeholder">
+                        <i class="{{ categorie.icon }}"></i>
+                      </div>
+                    {% endif %}
+
+                    <div class="p-3">
+                      <h3 class="item-title">{{ item.title }}</h3>
+                      <p class="item-desc">{{ item.description }}</p>
+                    </div>
+
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+
+              {% else %}
+                <p class="text-center text-muted py-3">Aucun contenu pour le moment.</p>
+              {% endif %}
+
+            </div>
+          </div>
+
+        </div>
+        {% empty %}
+        <p class="text-center text-muted py-5">Aucune catégorie disponible.</p>
+        {% endfor %}
+
+      </div>
+    </div>
+
+  </main>
+
+  {% include 'common/footer.html' %}
+
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'common/js/mobile-menu.js' %}"></script>
+
+</body>
+</html>

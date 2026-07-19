@@ -1,0 +1,64 @@
+<section class="cv-section" id="formations">
+    <div class="cv-section-inner">
+      <div class="cv-section-label">Académique</div>
+      <h2 class="cv-section-title"><i class="fas fa-graduation-cap"></i> Formations & Certifications</h2>
+    </div>
+  
+    <div class="cv-section-inner">
+      <div class="row g-4">
+  
+        <!-- Certifications -->
+        <div class="col-md-5">
+          <div class="cv-formation-card">
+            <h3 class="cv-formation-card-title"><i class="fas fa-certificate"></i> Certifications</h3>
+            {% for certification in certifications %}
+              <div class="cv-formation-item">
+                <span class="cv-formation-year">{{ certification.year }}</span>
+                <div>
+                  <div class="cv-formation-name">{{ certification.title }}</div>
+                  <a href="{{ certification.link }}" target="_blank" class="cv-formation-link">
+                    Voir le certificat <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+  
+        <!-- Diplômes -->
+        <div class="col-md-4">
+          <div class="cv-formation-card">
+            <h3 class="cv-formation-card-title"><i class="fas fa-user-graduate"></i> Diplômes</h3>
+            {% for diplome in diplomes %}
+              <div class="cv-formation-item">
+                <span class="cv-formation-year">{{ diplome.year }}</span>
+                <div class="cv-formation-name">{{ diplome.title }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+  
+        <!-- Langues -->
+        <div class="col-md-3">
+          <div class="cv-formation-card">
+            <h3 class="cv-formation-card-title"><i class="fas fa-language"></i> Langues</h3>
+            <div class="cv-formation-item">
+              <span class="cv-formation-year">🇬🇧</span>
+              <div>
+                <div class="cv-formation-name">Anglais</div>
+                <div class="cv-formation-level">Professionnel</div>
+              </div>
+            </div>
+            <div class="cv-formation-item">
+              <span class="cv-formation-year">🇫🇷</span>
+              <div>
+                <div class="cv-formation-name">Français</div>
+                <div class="cv-formation-level">Natif</div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Yacine MEZIANE</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{% static 'common/assets/img/favicon.png' %}">
+</head>
+<body>
+
+  {% include 'common/navbar_menu-mobile.html' %}
+
+  <!-- Hero -->
+  <div class="contact-hero">
+    <div class="contact-hero-inner">
+      <div class="contact-hero-label">Contact</div>
+      <h1 class="contact-hero-title">Me Contacter</h1>
+      <p class="contact-hero-sub">Une question, une opportunité ? Écrivez-moi.</p>
+    </div>
+  </div>
+
+  <!-- Formulaire -->
+  <div class="contact-wrapper">
+    <div class="contact-form-card">
+      <form method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-6">
+            {% if form.first_name.field.required %}
+            <div class="label-inline">
+                {{ form.first_name.label_tag }}
+                <span class="required">*</span>
+            </div>
+            {% else %}
+              {{ form.first_name.label_tag }}
+            {% endif %}
+            {{ form.first_name }}
+            {% if form.first_name.errors %}
+              <div class="text-danger">{{ form.first_name.errors }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-md-6">
+            {% if form.last_name.field.required %}
+            <div class="label-inline">
+              {{ form.last_name.label_tag }}<span class="required">*</span>
+            </div>
+            {% else %}
+              {{ form.last_name.label_tag }}
+            {% endif %}
+            {{ form.last_name }}
+            {% if form.last_name.errors %}
+              <div class="text-danger">{{ form.last_name.errors }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            {% if form.company.field.required %}
+            <div class="label-inline">
+              {{ form.company.label_tag }}<span class="required">*</span>
+            </div>
+            {% else %}
+              {{ form.company.label_tag }}
+            {% endif %}
+            {{ form.company }}
+            {% if form.company.errors %}
+              <div class="text-danger">{{ form.company.errors }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-md-6">
+            {% if form.subject.field.required %}
+            <div class="label-inline">
+              {{ form.subject.label_tag }}<span class="required">*</span>
+            </div>
+            {% else %}
+              {{ form.subject.label_tag }}
+            {% endif %}
+            {{ form.subject }}
+            {% if form.subject.errors %}
+              <div class="text-danger">{{ form.subject.errors }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="mb-3">
+          {% if form.email.field.required %}
+          <div class="label-inline">
+            {{ form.email.label_tag }}<span class="required">*</span>
+            </div>
+          {% else %}
+            {{ form.email.label_tag }}
+          {% endif %}
+          {{ form.email }}
+          {% if form.email.errors %}
+            <div class="text-danger">{{ form.email.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="mb-3">
+          {% if form.message.field.required %}
+          <div class="label-inline">
+            {{ form.message.label_tag }}<span class="required">*</span>
+            </div>
+          {% else %}
+            {{ form.message.label_tag }}
+          {% endif %}
+          {{ form.message }}
+          {% if form.message.errors %}
+            <div class="text-danger">{{ form.message.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="mb-3">
+          {{ form.captcha }}
+          {% if form.captcha.errors %}
+            <div class="text-danger">
+              Vérification de sécurité échouée. Veuillez réessayer ou recharger la page.
+            </div>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-custom">Envoyer</button>
+
+        <div class="form-check mt-3">
+          {{ form.accept_privacy_policy }}
+          <label for="{{ form.accept_privacy_policy.id_for_label }}" class="form-check-label">
+            {{ form.accept_privacy_policy.label|safe }}
+          </label>
+          {% if form.accept_privacy_policy.errors %}
+            <div class="text-danger">{{ form.accept_privacy_policy.errors }}</div>
+          {% endif %}
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  {% include 'common/footer.html' %}
+  <script src="{% static 'common/js/mobile-menu.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog technique de Yacine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="{% static 'common/assets/img/favicon.png' %}">
+</head>
+<body>
+    {% include 'common/navbar_menu-mobile.html' %}
+
+    <div class="blog-header">
+      <div class="blog-header-inner">
+  
+          <div class="blog-label">Blog technique</div>
+  
+          <h1 class="blog-title">
+              Mes articles & tutoriels
+          </h1>
+  
+          <p class="blog-subtitle">
+              Retours d’expérience, bonnes pratiques SRE, DevOps, automatisation et architecture.
+          </p>
+  
+      </div>
+  </div>
+  
+
+  <div class="container mt-5">
+    <!-- Responsive grid avec cartes égales -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+
+
+      {% block content %}
+        {% for blog in blogs %}
+          <div class="col d-flex">
+            <a href="{% url 'blog_detail' slug=blog.slug %}" class="text-decoration-none w-100">
+              <div class="card p-4 h-100">
+                <h2><i class="{{ blog.emoji }}"></i> {{ blog.title }}</h2>
+
+
+
+                <p>{{ blog.description }}</p>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+      {% endblock %}
+
+      
+  </div>
+</div>
+
+  {% include 'common/footer.html' %}
+
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

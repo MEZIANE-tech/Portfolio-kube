@@ -1,0 +1,8 @@
+.env
+Portfolio/.env
+*.pyc
+.venv
+.venv/
+venv/
+*.log
+logs

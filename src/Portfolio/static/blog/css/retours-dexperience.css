@@ -1,0 +1,71 @@
+@import url("../../common/css/navbar.css");
+@import url("../../common/css/footer.css");
+
+/* ─── Variables globales ─────────────────────────────────────── */
+:root {
+  --cv-bg: #090d1a;
+  --cv-surface: rgba(255,255,255,0.03);
+  --cv-border: rgba(255,255,255,0.07);
+  --cv-accent: #1777b8;
+  --cv-accent-light: #78bfee;
+  --cv-text: #c9d8e8;
+  --cv-muted: #8899aa;
+  --cv-white: #ffffff;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  background-color: var(--cv-bg);
+  color: var(--cv-text);
+}
+
+.wrapper {
+  min-height: calc(100vh - 50px - 112px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Card ───────────────────────────────────────────────────── */
+.card {
+  background: var(--cv-surface);
+  border: 1px solid var(--cv-border);
+  border-radius: 14px;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 18px rgba(23, 119, 184, 0.15);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 28px rgba(23, 119, 184, 0.35);
+}
+
+/* ─── Icône ───────────────────────────────────────────────────── */
+.display-1 i {
+  color: var(--cv-accent-light);
+  text-shadow: 0 0 12px rgba(23, 119, 184, 0.5);
+}
+
+/* ─── Titres ─────────────────────────────────────────────────── */
+h1 {
+  color: var(--cv-white);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--cv-muted);
+}
+
+/* ─── Boutons ─────────────────────────────────────────────────── */
+.btn-outline-custom {
+  color: var(--cv-accent-light);
+  border-color: var(--cv-accent-light);
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--cv-accent);
+  color: white;
+  border-color: var(--cv-accent);
+}

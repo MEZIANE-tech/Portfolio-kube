@@ -1,0 +1,40 @@
+{% load static %}
+
+<section class="cv-section" id="competences">
+    <div class="cv-section-inner">
+      <div class="cv-section-label">Stack technique</div>
+      <h2 class="cv-section-title"><i class="fa-solid fa-screwdriver-wrench"></i>Compétences</h2>
+    </div>
+
+
+    
+<div class="container mt-5">
+    <div class="competences container">
+    <div class="container swiper">
+        
+        <div class="card-wrapper">
+            <ul class="card-list swiper-wrapper">
+                {% block content %}
+                    {% for competence in competences %}
+                        <li class="card-item swiper-slide">
+                            <div class="card-link">
+                                <img src="{% static 'cv/assets/img/'|add:competence.image_name %}" alt="Card image" class="card-image" oncontextmenu="return false;">
+                                <p class="badge">{{ competence.title }}</p>
+                                <h2 class="card-title text-body-secondary mb-3 lh-base">{{ competence.content|safe }}</h2>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endblock %}
+            </ul>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'cv/js/swipe_competences.js' %}"></script>

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci — Yacine MEZIANE</title>
+    <link rel="stylesheet" href="{% static 'contact/css/thank-you.css' %}">
+</head>
+<body>
+
+    {% include 'common/navbar_menu-mobile.html' %}
+
+    <div class="thankyou-wrapper">
+
+        <div class="thankyou-icon">🙏</div>
+
+        <h1 class="thankyou-title">Merci pour votre message&nbsp;!</h1>
+
+        <p class="thankyou-text">
+            Je vous répondrai dans les plus brefs délais.<br>
+            En attendant, vous pouvez continuer à explorer le site<br>
+            ou revenir à l’accueil.
+        </p>
+
+        <a class="thankyou-button" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                 fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 
+                      3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 
+                      0 0 1 0-.708l4-4a.5.5 0 1 1 
+                      .708.708L3.707 7.5H14.5a.5.5 
+                      0 0 1 .5.5z"/>
+            </svg>
+            Retour à l'accueil
+        </a>
+
+    </div>
+
+    <script src="{% static 'common/js/mobile-menu.js' %}"></script>
+</body>
+</html>

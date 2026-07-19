@@ -1,0 +1,173 @@
+@import url("../../../common/css/navbar.css");
+@import url("../../../common/css/footer.css");
+
+/* ─── Variables globales ─────────────────────────────────────── */
+:root {
+  --cv-bg: #090d1a;
+  --cv-surface: rgba(255,255,255,0.03);
+  --cv-border: rgba(255,255,255,0.07);
+  --cv-accent: #1777b8;
+  --cv-accent-light: #78bfee;
+  --cv-text: #c9d8e8;
+  --cv-muted: #8899aa;
+  --cv-white: #ffffff;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 5rem auto 6rem;
+  padding: 0 1.5rem;
+  min-height: 100vh;
+}
+
+/* ─── Titre principal ────────────────────────────────────────── */
+/* ─── Header générique pour Tutoriels & Commandes ───────────────────────── */
+.page-header {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1829 100%);
+  padding: 110px 2rem 60px;
+  text-align: center;
+  border-bottom: 1px solid var(--cv-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(23, 119, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 119, 184, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.page-header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Label */
+.page-header-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cv-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-header-label::before,
+.page-header-label::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background: var(--cv-accent);
+}
+
+/* Titre */
+.page-header-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--cv-white);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.page-header-title i {
+  color: var(--cv-accent-light);
+  margin-right: 10px;
+}
+
+/* Sous-titre */
+.page-header-sub {
+  font-size: 1rem;
+  color: var(--cv-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+/* ─── Liste des tutoriels ───────────────────────────────────── */
+ul.section-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.section-list li {
+  margin-bottom: 1rem;
+}
+
+a.section-link {
+  display: block;
+  padding: 1.3rem 1.2rem;
+  text-decoration: none;
+  color: var(--cv-text);
+  background: var(--cv-surface);
+  border-radius: 14px;
+  transition: 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+
+/* ─── Contenu ────────────────────────────────────────────────── */
+a.section-link h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+  color: var(--cv-white);
+}
+
+a.section-link p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--cv-muted);
+  line-height: 1.5;
+}
+
+/* ─── Message vide ───────────────────────────────────────────── */
+.section-list .empty-message {
+  text-align: center;
+  padding: 2rem 0;
+  list-style: none;
+  color: var(--cv-muted);
+}
+
+.section-list .empty-message p {
+  margin: 0;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  a.section-link {
+    padding: 1rem;
+  }
+
+  a.section-link h2 {
+    font-size: 1.15rem;
+  }
+
+  a.section-link p {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,84 @@
+{% load static %}
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Yacine MEZIANE</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="{% url 'cv' %}">CV</a>
+      <a href="{% url 'loisirs' %}">Loisirs</a>
+      <a href="{% url 'Blog' %}">Blog</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+    <div class="burger" onclick="toggleMobileMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+
+
+  <div class="mobile-profile">
+    <img src="{% static 'Portfolio/assets/img/Yacine.jpg' %}" alt="Ma Photo">
+    <div class="mobile-profile-info">
+      <div class="name">Yacine MEZIANE</div>
+      <div class="title">Ingénieur Systèmes & Automatisation</div>
+    </div>
+  </div>
+
+
+
+
+
+  <a href="/">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75H3.75A.75.75 0 013 21V9.75z" />
+    </svg>
+    Home
+  </a>
+  
+  <a href="{% url 'cv' %}">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+     viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M7 3h6l5 5v13H7V3z" />
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M14 3v5h5" />
+</svg>
+    CV</a>
+
+  <a href="{% url 'loisirs' %}">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+     viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3l2.4 6.9H21l-5.2 3.8 2 6.8L12 17l-5.8 3.5 2-6.8L3 9.9h6.6L12 3z" />
+</svg>
+Loisirs</a>
+
+  <a href="{% url 'Blog' %}">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+     viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M7 8h10M7 12h6M5 20l2-4H5a3 3 0 01-3-3V7a3 3 0 013-3h14a3 3 0 013 3v6a3 3 0 01-3 3h-6l-6 4z" />
+</svg>
+Blog</a>
+  <a href="{% url 'contact' %}">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+     viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M3 5h18v14H3V5z" />
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M3 5l9 7 9-7" />
+</svg>
+Contact</a>
+</div>
+
+
+<div id="mobileOverlay"></div>
+
+<script src="{% static 'common/js/mobile-menu.js' %}"></script>

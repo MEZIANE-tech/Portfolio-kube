@@ -1,0 +1,43 @@
+{% load static %}
+<section class="hero">
+  <div class="hero-text">
+
+    <div class="hero-greeting">Bonjour, je suis Yacine</div>
+
+    {% if hero %}
+      <h1 class="hero-name">{{ hero.titre }}</h1>
+      <p class="hero-role">{{ hero.sous_titre }}</p>
+      <p>{{ hero.presentation }}</p>
+    {% else %}
+      <h1 class="hero-name">Ingénieur Systèmes<br>& Automatisation</h1>
+      <p class="hero-role">Fiabilité · Résilience · Observabilité</p>
+      <p>Spécialisé dans les environnements critiques, j'assure la fiabilité, la résilience et l'observabilité des infrastructures grâce à l'automatisation, aux migrations complexes et aux pratiques modernes proches du SRE.</p>
+    {% endif %}
+
+    <div class="hero-actions">
+      <a href="{% url 'contact' %}" class="btn-primary">Me Contacter</a>
+      <div class="cv-group">
+        <a href="{% url 'cv' %}" class="btn-outline">Consulter le CV</a>
+        <a href="{% url 'download-cv' %}" class="dl-link">
+          <i class="fa-solid fa-download"></i>
+          Télécharger le CV
+        </a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="hero-image">
+    <div class="hero-image-frame">
+      {% if hero and hero.photo %}
+        <img src="{{ hero.photo.url }}" alt="Yacine MEZIANE" oncontextmenu="return false;">
+      {% else %}
+        <img src="{% static 'Portfolio/assets/img/Yacine.jpg' %}" alt="Yacine MEZIANE" oncontextmenu="return false;">
+      {% endif %}
+      <span class="hero-badge">🚀 SRE · DevOps</span>
+    </div>
+  </div>
+
+</section>
